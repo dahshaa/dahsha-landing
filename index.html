@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeze Wigs - اكتشفي إطلالتك المثالية</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Styles related to the overall layout and theme */
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #fce4ec; /* Light pink background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+            direction: rtl; /* Right-to-left for Arabic */
+        }
+        
+        /* Step visibility management */
+        .step-section {
+            display: none;
+        }
+        .step-section.active {
+            display: block;
+        }
+
+        /* Selection cards (Face Shapes, Wigs, Colors) */
+        .selection-card {
+            cursor: pointer;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+            border-radius: 1rem;
+            overflow: hidden;
+            background-color: #fcfcfc;
+        }
+        .selection-card.selected {
+            border-color: #e91e63; /* Pink border when selected */
+            box-shadow: 0 0 15px rgba(233, 30, 99, 0.4);
+            transform: translateY(-5px);
+        }
+        .selection-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Images and descriptions within cards */
+        .card-image {
+            width: 100%;
+            aspect-ratio: 1 / 1; /* Enforce square ratio */
+            object-fit: cover;
+            border-radius: 0.75rem 0.75rem 0 0; /* Rounded top corners only */
+            margin-bottom: 0; /* Remove margin below image */
+        }
+        .card-content {
+            padding: 1rem;
+        }
+
+        /* Buttons and input fields */
+        .btn {
+            background-color: #e91e63;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .btn:hover {
+            background-color: #c2185b;
+            transform: translateY(-2px);
+        }
+        .btn:disabled {
+            background-color: #f8bbd0;
+            cursor: not-allowed;
+            box-shadow: none;
+            transform: none;
+        }
+        input[type="text"], input[type="email"], textarea { /* Added input[type="email"] */
+            border: 1px solid #e0e0e0;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+        input[type="text"]:focus, input[type="email"]:focus, textarea:focus { /* Added input[type="email"] */
+            outline: none;
+            border-color: #e91e63;
+            box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.2);
+        }
+        
+        /* Color selection circles */
+        .color-circle {
+            width: 40px;
+            aspect-ratio: 1 / 1; /* Enforce square ratio for color circles */
+            border-radius: 50%;
+            border: 2px solid #ccc;
+            margin: 0 auto 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .color-option.selected .color-circle {
+            border-color: #e91e63;
+            box-shadow: 0 0 0 3px #e91e63;
+        }
+        .color-option:hover .color-circle {
+            transform: scale(1.05);
+        }
+
+        /* Message box for validation/success */
+        .message-box {
+            background-color: #fff3e0;
+            color: #ff9800;
+            border: 1px solid #ff9800;
+            border-radius: 0.75rem;
+            padding: 1rem;
+            margin-top: 1rem;
+            display: none;
+        }
+        .message-box.success {
+            background-color: #e8f5e9;
+            color: #4caf50;
+            border-color: #4caf50;
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <div class="container">
+        <h1 class="text-4xl font-bold text-gray-800 mb-6">Dahsha Wigs - اكتشفي إطلالتك المثالية</h1>
+        <p class="text-lg text-gray-600 mb-8">مرحباً بكِ في Dahsha Wigs دعينا نساعدك في العثور على الباروكة التي تبرز جمالك.</p>
+
+        <!-- Step 1: Face Shape Selection -->
+        <div id="step1" class="step-section active">
+            <h2 class="text-3xl font-semibold text-gray-700 mb-6">الخطوة 1: حددي شكل وجهك</h2>
+            <p class="text-md text-gray-500 mb-8">كل وجه له سحره… اختاري شكل وجهك وعيشي دهشتك! </p>
+            <div id="faceShapesContainer" class="grid grid-cols-2 md:grid-cols-3 gap-6 mb-8">
+                <!-- Face shapes loaded by JS -->
+            </div>
+            <button id="nextBtn1" class="btn" disabled>التالي</button>
+        </div>
+
+        <!-- Step 2: Wig Suggestion -->
+        <div id="step2" class="step-section">
+            <h2 class="text-3xl font-semibold text-gray-700 mb-6">الخطوة 2: اقتراحات الباروكات المناسبة</h2>
+            <p class="text-md text-gray-500 mb-8">اخترنا لكِ هذه الباروكات التي تناسب شكل وجهك:</p>
+            <div id="wigSuggestionsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <!-- Wig suggestions loaded by JS -->
+            </div>
+            <button id="prevBtn2" class="btn ml-4">السابق</button>
+            <button id="nextBtn2" class="btn" disabled>التالي</button>
+        </div>
+
+        <!-- Step 3: Color Selection -->
+        <div id="step3" class="step-section">
+            <h2 class="text-3xl font-semibold text-gray-700 mb-6">الخطوة 3: اختاري لونك المفضل</h2>
+            <p class="text-md text-gray-500 mb-8">اختاري اللون الذي يعجبك لباروكتك.</p>
+            <div id="colorOptionsContainer" class="grid grid-cols-3 md:grid-cols-4 gap-6 mb-8">
+                <!-- Color options loaded by JS -->
+            </div>
+            <button id="prevBtn3" class="btn ml-4">السابق</button>
+            <button id="nextBtn3" class="btn" disabled>التالي</button>
+        </div>
+
+        <!-- Step 4: Contact Form -->
+        <div id="step4" class="step-section">
+            <h2 class="text-3xl font-semibold text-gray-700 mb-6">الخطوة 4: املأي النموذج للتواصل</h2>
+            <p class="text-md text-gray-500 mb-8">املأي البيانات التالية وسيتواصل معك فريق Zeze Wigs عبر الواتساب.</p>
+            <form id="contactForm" class="space-y-6 text-right">
+                <div>
+                    <label for="fullName" class="block text-gray-700 text-sm font-bold mb-2">الاسم الكامل:</label>
+                    <input type="text" id="fullName" name="fullName" class="shadow appearance-none border rounded-xl w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                </div>
+                <!-- Removed whatsappNumber input as it's not needed for direct WhatsApp redirect -->
+                <div>
+                    <label for="email" class="block text-gray-700 text-sm font-bold mb-2">بريدك الإلكتروني (اختياري):</label>
+                    <input type="email" id="email" name="email" class="shadow appearance-none border rounded-xl w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                </div>
+                <div>
+                    <label for="notes" class="block text-gray-700 text-sm font-bold mb-2">ملاحظات (اختياري):</label>
+                    <textarea id="notes" name="notes" rows="4" class="shadow appearance-none border rounded-xl w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+                </div>
+                <div class="message-box" id="messageBox"></div>
+                <button type="submit" class="btn w-full">إرسال الطلب عبر الواتساب</button>
+            </form>
+            <p class="text-sm text-gray-500 mt-6">Zeze Wigs - <a href="https://Zezewigs.com" class="text-pink-600 hover:underline" target="_blank">Zezewigs.com</a></p>
+            <button id="prevBtn4" class="btn mt-4">السابق</button>
+        </div>
+    </div>
+
+    <script>
+        // بيانات أشكال الوجوه وصور الباروكات
+        const faceShapesData = [
+            {
+                id: 'oval',
+                name: 'الوجه البيضاوي',
+                description: 'وجه متوازن، يتناسب مع معظم القصات.',
+                image: 'https://www.cliphair.co.uk/cdn/shop/articles/Beyonce_Face_shape_2.png?v=1626783290', // Image of Oval Face
+                wigs: [
+                    { name: 'الباروكة الطويلة المستقيمة', image: 'https://i.ibb.co/0y1J4R2/long-straight-wig.jpg' }, // Image of Long Straight Wig
+                    { name: 'باروكة بوب قصير', image: 'https://i.ibb.co/n1Xq7H5/short-bob-wig.jpg' } // Image of Short Bob Wig
+                ]
+            },
+            {
+                id: 'round',
+                name: 'الوجه الدائري',
+                description: 'ملامح ناعمة، ووجه دائري.',
+                image: 'https://i.ibb.co/VTR23Yf/round-face.png', // Image of Round Face
+                wigs: [
+                    { name: 'الباروكة الطويلة المستقيمة', image: 'https://i.ibb.co/0y1J4R2/long-straight-wig.jpg' },
+                    { name: 'باروكة مموجة ذات طبقات', image: 'https://i.ibb.co/D75Pz1B/layered-wavy-wig.jpg' } // Image of Layered Wavy Wig
+                ]
+            },
+            {
+                id: 'square',
+                name: 'الوجه المربع',
+                description: 'جبهة وخط فك عريض ومحدد.',
+                image: 'https://i.ibb.co/3k5f40L/square-face.png', // Image of Square Face
+                wigs: [
+                    { name: 'باروكة مموجة ناعمة', image: 'https://i.ibb.co/Y2z689j/wavy-wig.jpg' }, // Image of Wavy Wig
+                    { name: 'باروكة طويلة ومموجة', image: 'https://i.ibb.co/0y1J4R2/long-straight-wig.jpg' }
+                ]
+            },
+            {
+                id: 'heart',
+                name: 'الوجه على شكل قلب',
+                description: 'جبهة عريضة وذقن مدبب.',
+                image: 'https://i.ibb.co/r2v893G/heart-face.png', // Image of Heart Face
+                wigs: [
+                    { name: 'باروكة بوب', image: 'https://i.ibb.co/n1Xq7H5/short-bob-wig.jpg' },
+                    { name: 'باروكة مع غرة جانبية', image: 'https://i.ibb.co/Q8R2q4S/wig-with-bangs.jpg' } // Image of Wig with Bangs
+                ]
+            },
+            {
+                id: 'oblong',
+                name: 'الوجه الطويل',
+                description: 'أطول من العرض، وملامح ناعمة.',
+                image: 'https://i.ibb.co/P4p8xV6/oblong-face.png', // Image of Oblong Face
+                wigs: [
+                    { name: 'باروكة ذات تموجات كثيفة', image: 'https://i.ibb.co/Y2z689j/wavy-wig.jpg' },
+                    { name: 'باروكة بوب بطول الذقن', image: 'https://i.ibb.co/n1Xq7H5/short-bob-wig.jpg' }
+                ]
+            },
+            {
+                id: 'diamond',
+                name: 'الوجه الماسي',
+                description: 'خدود بارزة وجبهة وذقن ضيقان.',
+                image: 'https://i.ibb.co/k2vR7gB/diamond-face.png', // Image of Diamond Face
+                wigs: [
+                    { name: 'باروكة لوب (بوب طويل)', image: 'https://i.ibb.co/n1Xq7H5/short-bob-wig.jpg' },
+                    { name: 'باروكة مع غرة جانبية', image: 'https://i.ibb.co/Q8R2q4S/wig-with-bangs.jpg' }
+                ]
+            }
+        ];
+
+        // بيانات الألوان
+        const colorsData = [
+            { name: 'أسود', hex: '#000000' },
+            { name: 'بني غامق', hex: '#5C4033' },
+            { name: 'بني فاتح', hex: '#8B4513' },
+            { name: 'أشقر', hex: '#F4D03F' },
+            { name: 'أحمر', hex: '#B22222' },
+            { name: 'هايلايت', hex: 'linear-gradient(to right, #F4D03F, #8B4513)' }
+        ];
+
+        // متغيرات الحالة
+        let currentStep = 1;
+        let selectedFaceShape = null;
+        let selectedWig = null;
+        let selectedColor = null;
+
+        // العناصر الأساسية في DOM
+        const steps = {
+            1: document.getElementById('step1'),
+            2: document.getElementById('step2'),
+            3: document.getElementById('step3'),
+            4: document.getElementById('step4')
+        };
+        const faceShapesContainer = document.getElementById('faceShapesContainer');
+        const wigSuggestionsContainer = document.getElementById('wigSuggestionsContainer');
+        const colorOptionsContainer = document.getElementById('colorOptionsContainer');
+        const messageBox = document.getElementById('messageBox');
+
+        // أزرار التنقل
+        const nextBtn1 = document.getElementById('nextBtn1');
+        const prevBtn2 = document.getElementById('prevBtn2');
+        const nextBtn2 = document.getElementById('nextBtn2');
+        const prevBtn3 = document.getElementById('prevBtn3');
+        const nextBtn3 = document.getElementById('nextBtn3');
+        const prevBtn4 = document.getElementById('prevBtn4');
+        const contactForm = document.getElementById('contactForm');
+
+        // دالة لعرض رسالة
+        function showMessage(message, type = 'warning') {
+            messageBox.textContent = message;
+            messageBox.className = `message-box block ${type === 'success' ? 'success' : ''}`;
+            messageBox.style.display = 'block';
+        }
+
+        // دالة لإخفاء الرسالة
+        function hideMessage() {
+            messageBox.style.display = 'none';
+        }
+
+        // دالة لتحديث عرض الخطوات
+        function updateStepDisplay() {
+            for (const key in steps) {
+                steps[key].classList.remove('active');
+            }
+            steps[currentStep].classList.add('active');
+            hideMessage();
+        }
+
+        // دالة لإنشاء وعرض أشكال الوجوه (الخطوة 1)
+        function renderFaceShapes() {
+            faceShapesContainer.innerHTML = '';
+            faceShapesData.forEach(shape => {
+                const card = document.createElement('div');
+                card.id = shape.id;
+                card.className = `selection-card ${selectedFaceShape === shape.id ? 'selected' : ''}`;
+                card.innerHTML = `
+                    <img src="${shape.image}" alt="${shape.name}" class="card-image" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:0.75rem 0.75rem 0 0;margin-bottom:0;">
+                    <div class="card-content">
+                        <h3 class="font-semibold text-lg text-gray-800 mb-1">${shape.name}</h3>
+                        <p class="text-sm text-gray-500">${shape.description}</p>
+                    </div>
+                `;
+                card.addEventListener('click', () => {
+                    document.querySelectorAll('#faceShapesContainer .selection-card').forEach(s => s.classList.remove('selected'));
+                    card.classList.add('selected');
+                    selectedFaceShape = shape.id;
+                    nextBtn1.disabled = false;
+                });
+                faceShapesContainer.appendChild(card);
+            });
+        }
+
+        // دالة لإنشاء وعرض اقتراحات الباروكات (الخطوة 2)
+        function renderWigSuggestions() {
+            wigSuggestionsContainer.innerHTML = '';
+            const faceShape = faceShapesData.find(s => s.id === selectedFaceShape);
+            if (faceShape && faceShape.wigs.length > 0) {
+                faceShape.wigs.forEach(wig => {
+                    const card = document.createElement('div');
+                    card.id = wig.name.replace(/\s/g, '-');
+                    card.className = `selection-card ${selectedWig === wig.name ? 'selected' : ''}`; // استخدام نفس الفئة selection-card
+                    card.innerHTML = `
+                        <img src="${wig.image}" alt="${wig.name}" class="card-image" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:0.75rem 0.75rem 0 0;margin-bottom:0;">
+                        <div class="card-content">
+                            <h3 class="font-semibold text-lg text-gray-800">${wig.name}</h3>
+                        </div>
+                    `;
+                    card.addEventListener('click', () => {
+                        document.querySelectorAll('#wigSuggestionsContainer .selection-card').forEach(w => w.classList.remove('selected'));
+                        card.classList.add('selected');
+                        selectedWig = wig.name;
+                        nextBtn2.disabled = false;
+                    });
+                    wigSuggestionsContainer.appendChild(card);
+                });
+            } else {
+                wigSuggestionsContainer.innerHTML = '<p class="text-gray-500">لا توجد اقتراحات باروكات لهذا الشكل حاليًا.</p>';
+                nextBtn2.disabled = true;
+            }
+        }
+
+        // دالة لإنشاء وعرض خيارات الألوان (الخطوة 3)
+        function renderColorOptions() {
+            colorOptionsContainer.innerHTML = '';
+            colorsData.forEach(color => {
+                const option = document.createElement('div');
+                option.id = color.name.replace(/\s/g, '-');
+                option.className = `color-option selection-card p-4 rounded-xl cursor-pointer hover:shadow-lg transition-all duration-300 ${selectedColor === color.name ? 'selected' : ''}`;
+                const colorStyle = color.hex.startsWith('linear-gradient') ? `background: ${color.hex};` : `background-color: ${color.hex};`;
+                option.innerHTML = `
+                    <div class="color-circle mx-auto mb-3" style="${colorStyle}"></div>
+                    <h3 class="font-semibold text-md text-gray-800">${color.name}</h3>
+                `;
+                option.addEventListener('click', () => {
+                    document.querySelectorAll('.color-option').forEach(c => c.classList.remove('selected'));
+                    option.classList.add('selected');
+                    selectedColor = color.name;
+                    nextBtn3.disabled = false;
+                });
+                colorOptionsContainer.appendChild(option);
+            });
+        }
+
+        // معالجة الانتقال للخطوة التالية
+        function goToNextStep() {
+            if (currentStep === 1 && !selectedFaceShape) {
+                showMessage('الرجاء اختيار شكل الوجه أولاً.');
+                return;
+            }
+            if (currentStep === 2 && !selectedWig) {
+                showMessage('الرجاء اختيار الباروكة المقترحة أولاً.');
+                return;
+            }
+            if (currentStep === 3 && !selectedColor) {
+                showMessage('الرجاء اختيار لون الباروكة أولاً.');
+                return;
+            }
+
+            currentStep++;
+            updateStepDisplay();
+
+            if (currentStep === 2) {
+                renderWigSuggestions();
+            } else if (currentStep === 3) {
+                renderColorOptions();
+            }
+        }
+
+        // معالجة الانتقال للخطوة السابقة
+        function goToPrevStep() {
+            currentStep--;
+            updateStepDisplay();
+        }
+
+        // ربط الأحداث بالأزرار
+        nextBtn1.addEventListener('click', goToNextStep);
+        prevBtn2.addEventListener('click', goToPrevStep);
+        nextBtn2.addEventListener('click', goToNextStep);
+        prevBtn3.addEventListener('click', goToPrevStep);
+        nextBtn3.addEventListener('click', goToNextStep);
+        prevBtn4.addEventListener('click', goToPrevStep);
+
+        // معالجة إرسال النموذج لفتح رابط الواتساب
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const notes = document.getElementById('notes').value;
+            
+            const faceShapeName = faceShapesData.find(s => s.id === selectedFaceShape)?.name || 'غير محدد';
+            
+            // بناء رسالة الواتساب
+            let whatsappMessage = `
+مرحباً Zeze Wigs! 👋
+أود الاستفسار عن باروكة. إليك تفاصيل اختياراتي:
+
+الاسم: ${fullName}
+شكل الوجه المختار: ${faceShapeName}
+الباروكة المقترحة: ${selectedWig || 'لم يتم اختيار باروكة'}
+اللون المختار: ${selectedColor || 'لم يتم اختيار لون'}
+            `.trim();
+
+            if (email) {
+                whatsappMessage += `\nالبريد الإلكتروني: ${email}`;
+            }
+            if (notes) {
+                whatsappMessage += `\nملاحظات إضافية: ${notes}`;
+            }
+
+            // رقم الواتساب الخاص بالمتجر (تم تحديثه)
+            const yourWhatsappNumber = '966575617114'; 
+
+            const whatsappLink = `https://wa.me/${yourWhatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(whatsappLink, '_blank'); // فتح رابط الواتساب في نافذة جديدة
+
+            // يمكنك عرض رسالة تأكيد بسيطة هنا بعد فتح الواتساب
+            showMessage('تم فتح تطبيق الواتساب. يرجى إرسال الرسالة لإتمام طلبك.', 'success');
+        });
+
+        // تهيئة الصفحة عند التحميل
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFaceShapes();
+            updateStepDisplay();
+        });
+    </script>
+</body>
+</html>
