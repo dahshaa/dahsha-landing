@@ -2,6 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="https://we.tl/t-35ffeQUd7Z" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dahsha Wigs - اكتشفي إطلالتك المثالية</title>
     <!-- Tailwind CSS CDN -->
@@ -41,20 +42,30 @@
         /* Selection cards (Face Shapes, Wigs, Colors) */
         .selection-card {
             cursor: pointer;
-            border: 2px solid #e0e0e0;
-            transition: all 0.3s ease;
+            border: 2px solid #e0e0e0; /* Default border color */
+            transition: border-color 0.3s, box-shadow 0.4s cubic-bezier(.4,0,.2,1), transform 0.3s;
             border-radius: 1rem;
             overflow: hidden;
             background-color: #fcfcfc;
         }
         .selection-card.selected {
-            border-color: #e91e63; /* Pink border when selected */
-            box-shadow: 0 0 15px rgba(233, 30, 99, 0.4);
-            transform: translateY(-5px);
+            border-color: #017bef; /* Brand color when selected */
+            box-shadow: 0 0 30px 0 #017bef99;
+            transform: scale(1.03) translateY(-5px);
         }
         .selection-card:hover {
-            transform: translateY(-3px);
+            transform: scale(1.01) translateY(-3px);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        /* Length buttons (wig lengths) brand border and animation */
+        .length-btn {
+            border: 2px solid #e0e0e0 !important;
+            transition: border-color 0.3s, box-shadow 0.4s cubic-bezier(.4,0,.2,1), transform 0.3s;
+        }
+        .length-btn.bg-pink-200.border-pink-500 {
+            border-color: #017bef !important;
+            box-shadow: 0 0 20px 0 #017bef55;
+            transform: scale(1.05);
         }
 
         /* Images and descriptions within cards */
@@ -386,7 +397,7 @@
             wigSuggestionsContainer.appendChild(imageCard);
 
             // أطوال الشعر كاختيارات مربعات
-            const lengths = [8,10,12,14,16,18,20,22,24,26,28,30];
+            const lengths = [10,12,14,16,18,20,22,24,26,28,30];
             const lengthsContainer = document.createElement('div');
             lengthsContainer.className = 'flex flex-wrap justify-center gap-3 mt-6';
             lengths.forEach(length => {
