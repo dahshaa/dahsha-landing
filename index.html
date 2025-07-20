@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zeze Wigs - اكتشفي إطلالتك المثالية</title>
+    <title>Dahsha Wigs - اكتشفي إطلالتك المثالية</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
         /* Styles related to the overall layout and theme */
         body {
             font-family: 'Cairo', sans-serif;
-            background-color: #fce4ec; /* Light pink background */
+            background-color: #017bef; /* Dahsha blue background */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -71,7 +71,7 @@
 
         /* Buttons and input fields */
         .btn {
-            background-color: #e91e63;
+            background-color: #017bef;
             color: white;
             padding: 0.75rem 1.5rem;
             border-radius: 0.75rem;
@@ -80,11 +80,11 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         .btn:hover {
-            background-color: #c2185b;
+            background-color: #0160c1;
             transform: translateY(-2px);
         }
         .btn:disabled {
-            background-color: #f8bbd0;
+            background-color: #b3d6f7;
             cursor: not-allowed;
             box-shadow: none;
             transform: none;
@@ -139,13 +139,12 @@
 </head>
 <body class="font-sans">
     <div class="container">
-        <h1 class="text-4xl font-bold text-gray-800 mb-6">Dahsha Wigs - اكتشفي إطلالتك المثالية</h1>
-        <p class="text-lg text-gray-600 mb-8">مرحباً بكِ في Dahsha Wigs دعينا نساعدك في العثور على الباروكة التي تبرز جمالك.</p>
-
         <!-- Step 1: Face Shape Selection -->
         <div id="step1" class="step-section active">
+            <h1 class="text-4xl font-bold text-gray-800 mb-6">Dahsha Wigs - اكتشفي إطلالتك المثالية</h1>
+            <p class="text-lg text-gray-600 mb-8">مرحباً بكِ في Dahsha Wigs دعينا نساعدك في العثور على الباروكة التي تبرز جمالك.</p>
             <h2 class="text-3xl font-semibold text-gray-700 mb-6">الخطوة 1: حددي شكل وجهك</h2>
-            <p class="text-md text-gray-500 mb-8">كل وجه له سحره… اختاري شكل وجهك وعيشي دهشتك! </p>
+            <p class="text-md text-gray-500 mb-8">كل وجه له سحره… اختاري شكل وجهك وعيشي دهشتك   </p>
             <div id="faceShapesContainer" class="grid grid-cols-2 md:grid-cols-3 gap-6 mb-8">
                 <!-- Face shapes loaded by JS -->
             </div>
@@ -153,9 +152,10 @@
         </div>
 
         <!-- Step 2: Wig Suggestion -->
+
         <div id="step2" class="step-section">
-            <h2 class="text-3xl font-semibold text-gray-700 mb-6">الخطوة 2: اقتراحات الباروكات المناسبة</h2>
-            <p class="text-md text-gray-500 mb-8">اخترنا لكِ هذه الباروكات التي تناسب شكل وجهك:</p>
+            <h2 class="text-3xl font-semibold text-gray-700 mb-6">الخطوة 2: اختاري الطول المناسب </h2>
+            <p class="text-md text-gray-500 mb-8">كل طول له حكاية… ايش حكايتك اليوم؟:</p>
             <div id="wigSuggestionsContainer" class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <!-- Wig suggestions loaded by JS -->
             </div>
@@ -163,27 +163,37 @@
             <button id="nextBtn2" class="btn" disabled>التالي</button>
         </div>
 
-        <!-- Step 3: Color Selection -->
+        <!-- Step 3: Style Selection (NEW) -->
         <div id="step3" class="step-section">
-            <h2 class="text-3xl font-semibold text-gray-700 mb-6">الخطوة 3: اختاري لونك المفضل</h2>
-            <p class="text-md text-gray-500 mb-8">اختاري اللون الذي يعجبك لباروكتك.</p>
-            <div id="colorOptionsContainer" class="grid grid-cols-3 md:grid-cols-4 gap-6 mb-8">
-                <!-- Color options loaded by JS -->
+            <h2 class="text-3xl font-semibold text-gray-700 mb-6">الخطوة 3: ناعم افريقي كيرلي ويفي بوي قصه مميزه زيل حصان الستايل بإيدك</h2>
+            <p class="text-md text-gray-500 mb-8"></p>
+            <div id="styleOptionsContainer" class="grid grid-cols-2 md:grid-cols-3 gap-6 mb-8">
+                <!-- Style options loaded by JS -->
             </div>
             <button id="prevBtn3" class="btn ml-4">السابق</button>
             <button id="nextBtn3" class="btn" disabled>التالي</button>
         </div>
 
-        <!-- Step 4: Contact Form -->
+        <!-- Step 3: Color Selection -->
         <div id="step4" class="step-section">
-            <h2 class="text-3xl font-semibold text-gray-700 mb-6">الخطوة 4: املأي النموذج للتواصل</h2>
-            <p class="text-md text-gray-500 mb-8">املأي البيانات التالية وسيتواصل معك فريق Zeze Wigs عبر الواتساب.</p>
+            <h2 class="text-3xl font-semibold text-gray-700 mb-6">الخطوة 4: اختاري لونك المفضل</h2>
+            <p class="text-md text-gray-500 mb-8">اللّوك جاهز، الطول جاهز، الستايل جاهز… باقي اللون؟ هو اللي يكمل دهشتك</p>
+            <div id="colorOptionsContainer" class="grid grid-cols-3 md:grid-cols-4 gap-6 mb-8">
+                <!-- Color options loaded by JS -->
+            </div>
+            <button id="prevBtn4" class="btn ml-4">السابق</button>
+            <button id="nextBtn4" class="btn" disabled>التالي</button>
+        </div>
+
+        <!-- Step 4: Contact Form -->
+        <div id="step5" class="step-section">
+            <h2 class="text-3xl font-semibold text-gray-700 mb-6">الخطوة 5: املأي النموذج للتواصل</h2>
+            <p class="text-md text-gray-500 mb-8">املأي البيانات التالية وسيتواصل معك فريق Dahsha Wigs عبر الواتساب.</p>
             <form id="contactForm" class="space-y-6 text-right">
                 <div>
                     <label for="fullName" class="block text-gray-700 text-sm font-bold mb-2">الاسم الكامل:</label>
                     <input type="text" id="fullName" name="fullName" class="shadow appearance-none border rounded-xl w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
                 </div>
-                <!-- Removed whatsappNumber input as it's not needed for direct WhatsApp redirect -->
                 <div>
                     <label for="email" class="block text-gray-700 text-sm font-bold mb-2">بريدك الإلكتروني (اختياري):</label>
                     <input type="email" id="email" name="email" class="shadow appearance-none border rounded-xl w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
@@ -195,84 +205,92 @@
                 <div class="message-box" id="messageBox"></div>
                 <button type="submit" class="btn w-full">إرسال الطلب عبر الواتساب</button>
             </form>
-            <p class="text-sm text-gray-500 mt-6">Zeze Wigs - <a href="https://Zezewigs.com" class="text-pink-600 hover:underline" target="_blank">Zezewigs.com</a></p>
-            <button id="prevBtn4" class="btn mt-4">السابق</button>
+            <p class="text-sm text-gray-500 mt-6">Dahsha Wigs - <a href="https://Dahshawigs.com" class="text-pink-600 hover:underline" target="_blank">Dahshawigs.com</a></p>
+            <button id="prevBtn5" class="btn mt-4">السابق</button>
         </div>
     </div>
 
     <script>
+        // بيانات الاستايلات
+        const stylesData = [
+            { name: 'افريقي', image: 'https://c.top4top.io/p_3483ywqzi1.jpeg' },
+            { name: 'بوي', image: 'https://e.top4top.io/p_3483hzs281.jpeg' },
+            { name: 'كيرلي', image: 'https://h.top4top.io/p_3483wn9871.jpeg' },
+            { name: 'دهشة', image: 'https://l.top4top.io/p_3483cepol1.jpeg' },
+            { name: 'طويل', image: 'https://b.top4top.io/p_3483oeuv61.jpeg' },
+            { name: 'قصير', image: 'https://d.top4top.io/p_3483peklk1.jpeg' },
+            { name: 'مميز', image: 'https://f.top4top.io/p_3483cazap1.jpeg' },
+            { name: 'دهشة مميز', image: 'https://i.top4top.io/p_3483txymu1.jpeg' },
+            { name: 'ويفي', image: 'https://k.top4top.io/p_34831pzen1.jpeg' }
+        ];
+
+        let selectedStyle = null;
         // بيانات أشكال الوجوه وصور الباروكات
         const faceShapesData = [
+            {
+                id: 'diamond',
+                name: 'الوجه الماسي',
+                description: 'خدود بارزة وجبهة وذقن ضيقان.',
+                image: 'https://b.top4top.io/p_3483fzz9z1.jpeg',
+                wigs: [
+                    { name: 'باروكة لوب (بوب طويل)', image: 'https://i.ibb.co/n1Xq7H5/short-bob-wig.jpg' },
+                    { name: 'باروكة مع غرة جانبية', image: 'https://i.ibb.co/Q8R2q4S/wig-with-bangs.jpg' }
+                ]
+            },
             {
                 id: 'oval',
                 name: 'الوجه البيضاوي',
                 description: 'وجه متوازن، يتناسب مع معظم القصات.',
-                image: 'https://www.cliphair.co.uk/cdn/shop/articles/Beyonce_Face_shape_2.png?v=1626783290', // Image of Oval Face
+                image: 'https://i.top4top.io/p_3483xsyhk1.jpeg',
                 wigs: [
-                    { name: 'الباروكة الطويلة المستقيمة', image: 'https://i.ibb.co/0y1J4R2/long-straight-wig.jpg' }, // Image of Long Straight Wig
-                    { name: 'باروكة بوب قصير', image: 'https://i.ibb.co/n1Xq7H5/short-bob-wig.jpg' } // Image of Short Bob Wig
+                    { name: 'الباروكة الطويلة المستقيمة', image: 'https://i.ibb.co/0y1J4R2/long-straight-wig.jpg' },
+                    { name: 'باروكة بوب قصير', image: 'https://i.ibb.co/n1Xq7H5/short-bob-wig.jpg' }
                 ]
             },
             {
                 id: 'round',
                 name: 'الوجه الدائري',
                 description: 'ملامح ناعمة، ووجه دائري.',
-                image: 'https://i.ibb.co/VTR23Yf/round-face.png', // Image of Round Face
+                image: 'https://l.top4top.io/p_34833fppe1.jpeg',
                 wigs: [
                     { name: 'الباروكة الطويلة المستقيمة', image: 'https://i.ibb.co/0y1J4R2/long-straight-wig.jpg' },
-                    { name: 'باروكة مموجة ذات طبقات', image: 'https://i.ibb.co/D75Pz1B/layered-wavy-wig.jpg' } // Image of Layered Wavy Wig
+                    { name: 'باروكة مموجة ذات طبقات', image: 'https://i.ibb.co/D75Pz1B/layered-wavy-wig.jpg' }
                 ]
+            },
+            {
+                id: 'sectangular',
+                name: 'الوجه المستطيل',
+                description: 'وجه مستطيل بملامح واضحة.',
+                image: 'https://d.top4top.io/p_34835d2us1.jpeg',
+                wigs: []
             },
             {
                 id: 'square',
                 name: 'الوجه المربع',
                 description: 'جبهة وخط فك عريض ومحدد.',
-                image: 'https://i.ibb.co/3k5f40L/square-face.png', // Image of Square Face
+                image: 'https://l.top4top.io/p_3483mecle1.jpeg',
                 wigs: [
-                    { name: 'باروكة مموجة ناعمة', image: 'https://i.ibb.co/Y2z689j/wavy-wig.jpg' }, // Image of Wavy Wig
+                    { name: 'باروكة مموجة ناعمة', image: 'https://i.ibb.co/Y2z689j/wavy-wig.jpg' },
                     { name: 'باروكة طويلة ومموجة', image: 'https://i.ibb.co/0y1J4R2/long-straight-wig.jpg' }
                 ]
             },
             {
-                id: 'heart',
-                name: 'الوجه على شكل قلب',
-                description: 'جبهة عريضة وذقن مدبب.',
-                image: 'https://i.ibb.co/r2v893G/heart-face.png', // Image of Heart Face
-                wigs: [
-                    { name: 'باروكة بوب', image: 'https://i.ibb.co/n1Xq7H5/short-bob-wig.jpg' },
-                    { name: 'باروكة مع غرة جانبية', image: 'https://i.ibb.co/Q8R2q4S/wig-with-bangs.jpg' } // Image of Wig with Bangs
-                ]
-            },
-            {
-                id: 'oblong',
-                name: 'الوجه الطويل',
-                description: 'أطول من العرض، وملامح ناعمة.',
-                image: 'https://i.ibb.co/P4p8xV6/oblong-face.png', // Image of Oblong Face
-                wigs: [
-                    { name: 'باروكة ذات تموجات كثيفة', image: 'https://i.ibb.co/Y2z689j/wavy-wig.jpg' },
-                    { name: 'باروكة بوب بطول الذقن', image: 'https://i.ibb.co/n1Xq7H5/short-bob-wig.jpg' }
-                ]
-            },
-            {
-                id: 'diamond',
-                name: 'الوجه الماسي',
-                description: 'خدود بارزة وجبهة وذقن ضيقان.',
-                image: 'https://i.ibb.co/k2vR7gB/diamond-face.png', // Image of Diamond Face
-                wigs: [
-                    { name: 'باروكة لوب (بوب طويل)', image: 'https://i.ibb.co/n1Xq7H5/short-bob-wig.jpg' },
-                    { name: 'باروكة مع غرة جانبية', image: 'https://i.ibb.co/Q8R2q4S/wig-with-bangs.jpg' }
-                ]
+                id: 'triangular',
+                name: 'الوجه المثلث',
+                description: 'ذقن عريض وجبهة ضيقة.',
+                image: 'https://d.top4top.io/p_34834r27v1.jpeg',
+                wigs: []
             }
         ];
 
         // بيانات الألوان
         const colorsData = [
-            { name: 'أسود', hex: '#000000' },
-            { name: 'بني غامق', hex: '#5C4033' },
-            { name: 'بني فاتح', hex: '#8B4513' },
-            { name: 'أشقر', hex: '#F4D03F' },
-            { name: 'أحمر', hex: '#B22222' },
-            { name: 'هايلايت', hex: 'linear-gradient(to right, #F4D03F, #8B4513)' }
+            { name: 'أسود', image: 'https://j.top4top.io/p_34832e3o61.jpeg' },
+            { name: 'بني غامق', image: 'https://a.top4top.io/p_34833rmpt1.jpeg' },
+            { name: 'برغندي', image: 'https://c.top4top.io/p_3483pc4sw1.jpeg' },
+            { name: 'مخصص', image: 'https://f.top4top.io/p_3483is1061.png' },
+            { name: 'هايلايت أشقر', image: 'https://d.top4top.io/p_3483wdpik1.jpeg' },
+            { name: 'بني فاتح', image: 'https://g.top4top.io/p_34833s9n01.jpeg' }
         ];
 
         // متغيرات الحالة
@@ -282,11 +300,15 @@
         let selectedColor = null;
 
         // العناصر الأساسية في DOM
+        const styleOptionsContainer = document.getElementById('styleOptionsContainer');
+        const nextBtn4 = document.getElementById('nextBtn4');
+        const prevBtn5 = document.getElementById('prevBtn5');
         const steps = {
             1: document.getElementById('step1'),
             2: document.getElementById('step2'),
             3: document.getElementById('step3'),
-            4: document.getElementById('step4')
+            4: document.getElementById('step4'),
+            5: document.getElementById('step5')
         };
         const faceShapesContainer = document.getElementById('faceShapesContainer');
         const wigSuggestionsContainer = document.getElementById('wigSuggestionsContainer');
@@ -347,52 +369,85 @@
             });
         }
 
-        // دالة لإنشاء وعرض اقتراحات الباروكات (الخطوة 2)
+        // دالة لإنشاء وعرض اقتراحات الباروكات (الخطوة 2) - صورة واحدة واختيارات أطوال
         function renderWigSuggestions() {
             wigSuggestionsContainer.innerHTML = '';
-            const faceShape = faceShapesData.find(s => s.id === selectedFaceShape);
-            if (faceShape && faceShape.wigs.length > 0) {
-                faceShape.wigs.forEach(wig => {
-                    const card = document.createElement('div');
-                    card.id = wig.name.replace(/\s/g, '-');
-                    card.className = `selection-card ${selectedWig === wig.name ? 'selected' : ''}`; // استخدام نفس الفئة selection-card
-                    card.innerHTML = `
-                        <img src="${wig.image}" alt="${wig.name}" class="card-image" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:0.75rem 0.75rem 0 0;margin-bottom:0;">
-                        <div class="card-content">
-                            <h3 class="font-semibold text-lg text-gray-800">${wig.name}</h3>
-                        </div>
-                    `;
-                    card.addEventListener('click', () => {
-                        document.querySelectorAll('#wigSuggestionsContainer .selection-card').forEach(w => w.classList.remove('selected'));
-                        card.classList.add('selected');
-                        selectedWig = wig.name;
-                        nextBtn2.disabled = false;
-                    });
-                    wigSuggestionsContainer.appendChild(card);
+            // صورة واحدة (تم التحديث لرابط المستخدم)
+            const wigImageUrl = 'https://h.top4top.io/p_34837o3oy1.jpeg';
+            const wigName = 'باروكة شعر طبيعي';
+            const imageCard = document.createElement('div');
+            imageCard.className = 'selection-card selected';
+            imageCard.innerHTML = `
+                <img src="${wigImageUrl}" alt="${wigName}" class="card-image" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:0.75rem 0.75rem 0 0;margin-bottom:0;">
+                <div class="card-content">
+                    <h3 class="font-semibold text-lg text-gray-800 mb-1">${wigName}</h3>
+                </div>
+            `;
+            wigSuggestionsContainer.appendChild(imageCard);
+
+            // أطوال الشعر كاختيارات مربعات
+            const lengths = [8,10,12,14,16,18,20,22,24,26,28,30];
+            const lengthsContainer = document.createElement('div');
+            lengthsContainer.className = 'flex flex-wrap justify-center gap-3 mt-6';
+            lengths.forEach(length => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = `length-btn px-4 py-2 rounded-lg border-2 border-pink-300 text-pink-700 font-bold text-lg bg-white hover:bg-pink-50 transition-all ${selectedWig === length + ' انش' ? 'bg-pink-200 border-pink-500' : ''}`;
+                btn.textContent = length + ' انش';
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('.length-btn').forEach(b => b.classList.remove('bg-pink-200', 'border-pink-500'));
+                    btn.classList.add('bg-pink-200', 'border-pink-500');
+                    selectedWig = length + ' انش';
+                    nextBtn2.disabled = false;
                 });
+                lengthsContainer.appendChild(btn);
+            });
+            wigSuggestionsContainer.appendChild(lengthsContainer);
+            // إذا كان تم اختيار طول بالفعل فعّل زر التالي
+            if (selectedWig && lengths.map(l => l + ' انش').includes(selectedWig)) {
+                nextBtn2.disabled = false;
             } else {
-                wigSuggestionsContainer.innerHTML = '<p class="text-gray-500">لا توجد اقتراحات باروكات لهذا الشكل حاليًا.</p>';
                 nextBtn2.disabled = true;
             }
         }
 
         // دالة لإنشاء وعرض خيارات الألوان (الخطوة 3)
+        // دالة لإنشاء وعرض خيارات الاستايل (الخطوة 3)
+        function renderStyleOptions() {
+            styleOptionsContainer.innerHTML = '';
+            stylesData.forEach(style => {
+                const card = document.createElement('div');
+                card.className = `selection-card ${selectedStyle === style.name ? 'selected' : ''}`;
+                card.innerHTML = `
+                    <img src="${style.image}" alt="${style.name}" class="card-image" style="width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:0.75rem 0.75rem 0 0;margin-bottom:0;">
+                    <div class="card-content">
+                        <h3 class="font-semibold text-lg text-gray-800 mb-1">${style.name}</h3>
+                    </div>
+                `;
+                card.addEventListener('click', () => {
+                    document.querySelectorAll('#styleOptionsContainer .selection-card').forEach(s => s.classList.remove('selected'));
+                    card.classList.add('selected');
+                    selectedStyle = style.name;
+                    nextBtn3.disabled = false;
+                });
+                styleOptionsContainer.appendChild(card);
+            });
+        }
         function renderColorOptions() {
             colorOptionsContainer.innerHTML = '';
             colorsData.forEach(color => {
                 const option = document.createElement('div');
                 option.id = color.name.replace(/\s/g, '-');
                 option.className = `color-option selection-card p-4 rounded-xl cursor-pointer hover:shadow-lg transition-all duration-300 ${selectedColor === color.name ? 'selected' : ''}`;
-                const colorStyle = color.hex.startsWith('linear-gradient') ? `background: ${color.hex};` : `background-color: ${color.hex};`;
                 option.innerHTML = `
-                    <div class="color-circle mx-auto mb-3" style="${colorStyle}"></div>
-                    <h3 class="font-semibold text-md text-gray-800">${color.name}</h3>
+                    <img src="${color.image}" alt="${color.name}" class="card-image">
+                    <h3 class="font-semibold text-md text-gray-800 mt-2">${color.name}</h3>
                 `;
                 option.addEventListener('click', () => {
                     document.querySelectorAll('.color-option').forEach(c => c.classList.remove('selected'));
                     option.classList.add('selected');
                     selectedColor = color.name;
-                    nextBtn3.disabled = false;
+                    nextBtn4.disabled = false;
                 });
                 colorOptionsContainer.appendChild(option);
             });
@@ -405,10 +460,14 @@
                 return;
             }
             if (currentStep === 2 && !selectedWig) {
-                showMessage('الرجاء اختيار الباروكة المقترحة أولاً.');
+                showMessage('الرجاء اختيار الطول أولاً.');
                 return;
             }
-            if (currentStep === 3 && !selectedColor) {
+            if (currentStep === 3 && !selectedStyle) {
+                showMessage('الرجاء اختيار الاستايل أولاً.');
+                return;
+            }
+            if (currentStep === 4 && !selectedColor) {
                 showMessage('الرجاء اختيار لون الباروكة أولاً.');
                 return;
             }
@@ -419,6 +478,8 @@
             if (currentStep === 2) {
                 renderWigSuggestions();
             } else if (currentStep === 3) {
+                renderStyleOptions();
+            } else if (currentStep === 4) {
                 renderColorOptions();
             }
         }
@@ -436,6 +497,8 @@
         prevBtn3.addEventListener('click', goToPrevStep);
         nextBtn3.addEventListener('click', goToNextStep);
         prevBtn4.addEventListener('click', goToPrevStep);
+        nextBtn4.addEventListener('click', goToNextStep);
+        prevBtn5.addEventListener('click', goToPrevStep);
 
         // معالجة إرسال النموذج لفتح رابط الواتساب
         contactForm.addEventListener('submit', (e) => {
@@ -444,16 +507,17 @@
             const email = document.getElementById('email').value;
             const notes = document.getElementById('notes').value;
             
+
             const faceShapeName = faceShapesData.find(s => s.id === selectedFaceShape)?.name || 'غير محدد';
-            
             // بناء رسالة الواتساب
             let whatsappMessage = `
-مرحباً Zeze Wigs! 👋
+مرحباً Dahsha Wigs! 👋
 أود الاستفسار عن باروكة. إليك تفاصيل اختياراتي:
 
 الاسم: ${fullName}
 شكل الوجه المختار: ${faceShapeName}
 الباروكة المقترحة: ${selectedWig || 'لم يتم اختيار باروكة'}
+الاستايل المختار: ${selectedStyle || 'لم يتم اختيار استايل'}
 اللون المختار: ${selectedColor || 'لم يتم اختيار لون'}
             `.trim();
 
@@ -464,14 +528,15 @@
                 whatsappMessage += `\nملاحظات إضافية: ${notes}`;
             }
 
+
             // رقم الواتساب الخاص بالمتجر (تم تحديثه)
-            const yourWhatsappNumber = '966575617114'; 
+            const yourWhatsappNumber = '966574049121'; 
 
             const whatsappLink = `https://wa.me/${yourWhatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
             window.open(whatsappLink, '_blank'); // فتح رابط الواتساب في نافذة جديدة
 
             // يمكنك عرض رسالة تأكيد بسيطة هنا بعد فتح الواتساب
-            showMessage('تم فتح تطبيق الواتساب. يرجى إرسال الرسالة لإتمام طلبك.', 'success');
+            showMessage('شكرا لتواصلك مع دهشة', 'success');
         });
 
         // تهيئة الصفحة عند التحميل
